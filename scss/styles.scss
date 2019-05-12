@@ -1,32 +1,45 @@
 @import '_variables';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
 
 body {
   color: $font-color-primary;
   font-size: 16px;
-  font-family: $font-morion;
+  font-family: $font-system;
   // -webkit-font-smoothing: antialiased;
 }
 
 h1 {
   font-size: 40px;
   line-height: 48px;
+  font-weight: 500;
 }
 
 h2 {
   font-size: 32px;
   line-height: 40px;
+  font-weight: 500;
 }
 
 h3 {
   font-size: 24px;
   line-height: 32px;
+  font-weight: 400;
+  margin-bottom: $size-base*3;
 }
 
 p {
   font-size: 17px;
   line-height: 24px;
+}
+
+p.meta {
+  color: $font-color-light;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Roboto Mono', monospace;
+  margin-bottom: $size-base*2;
 }
 
 .container {
@@ -40,21 +53,45 @@ p {
   margin-bottom: $size-base*10;
 }
 
-.row {
+.work {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-gap: $size-base*2;
+  grid-template-columns: repeat(2,1fr);
+  // grid-template-columns: 2fr 1fr;
+  grid-gap: $size-base*3;
+
+  .work-item {
+    // display: block;
+
+    &.description-frame {
+    background-color: red;
+
+      .description {
+        margin: auto;
+        border: 1px solid blue;
+      }
+    }
+
+    img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .project-card {
+      padding: $size-base;
+      border-radius: 4px;
+      background-color: #F5F5F7;
+      margin-bottom: $size-base*2;
+      height: 400px;
+    }
+  }
 }
 
-.row-item {
-  display: block;
-
-  .project-card {
-    padding: $size-base;
-    border-radius: 4px;
-    background-color: #F5F5F7;
-    margin-bottom: $size-base*2;
-    height: 240px;
+// PUT THESE IN A SEPARATE FILE
+@media screen and (max-width: 1024px) {
+  .work {
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: $size-base;
   }
 }
 
